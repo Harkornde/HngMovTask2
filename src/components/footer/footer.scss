@@ -1,0 +1,78 @@
+@mixin devices($breakpoint) { //the name of the mixin is devices
+  
+    @if $breakpoint == tiny {    
+    @media screen and (max-width: 800px) {
+      @content;
+    }
+  }
+  
+}
+
+.footer{
+    width: 42%;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+    margin-bottom: 3vh;
+    margin-top: 15vh;
+
+
+    @include devices(tiny){
+        margin-left: 15%;
+        width: 70%;
+        margin-bottom: 0;
+    }
+
+    .socials{
+        
+        display: flex;
+        width: 35%;
+        justify-content: space-between;
+        margin-left: auto;
+        margin-right: auto;
+        
+        .div{
+            margin: auto;
+
+            .iconx{
+                @include devices(tiny){
+                    height: 3vh;
+                }
+            }
+        }
+    }
+    .policy{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        width: 90%;
+
+        h2{
+            font-size: 1rem;
+
+            @include devices(tiny){
+                font-size: 0.7rem;
+                
+            }
+        }
+    }
+    .copyright{
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%;
+
+        @include devices(tiny){
+            width: 60%;
+        }
+        h2{
+            font-size: 1rem;
+            color: #6B7280;
+
+            @include devices(tiny){
+                font-size: 0.7rem;
+            
+            }
+        }
+    }
+}

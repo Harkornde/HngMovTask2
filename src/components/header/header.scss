@@ -1,0 +1,128 @@
+@mixin devices($breakpoint) { //the name of the mixin is devices
+  
+    @if $breakpoint == tiny {    
+    @media screen and (max-width: 800px) {
+      @content;
+    }
+  }
+  
+}
+
+.header{
+    width: 84%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 8%;
+    top: 3vh;
+    z-index: 1;
+    color: #D1D5DB;
+
+    @include devices(tiny){
+        top: 1.2vh
+    }
+
+    .logo-container{
+        display: flex;
+        justify-content: space-between;
+       
+        
+
+        #logo{
+            margin-right: 25px;
+
+            @include devices(tiny){
+                width: 30px;
+                height: 30px;
+                margin-top: auto;
+                margin-bottom: auto;
+                
+            }
+        }
+
+        h2{
+            margin: auto;
+
+            @include devices(tiny){
+                display: none;
+            }
+        }
+    }
+    .search-container{
+        width: 60%;
+        margin: auto;
+        
+        height: 6vh;
+        display: flex;
+
+        .search{
+            background-color: #ffffff00;
+            
+            width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+            border: 2px solid #D1D5DB;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            padding-left: 1.5%;
+
+            @include devices(tiny){
+                padding-top: 1vh;
+            }
+
+            &::placeholder{
+                color: #D1D5DB;
+                font-size: 0.9rem;
+
+                @include devices(tiny){
+                    font-size: 0.8rem;
+                }
+            }
+
+            @include devices(tiny){
+                width: 100%;
+                height: 70%;
+                border-radius: 20px;
+                margin-top: auto;
+                margin-bottom: auto;
+                padding-bottom: 1vh;
+            }
+        }
+        .search-icon{
+            margin-right: 0;
+            position: absolute;
+            left: 72%;
+            top: 3.3vh;
+
+            @include devices (tiny){
+                width: 15px;
+                height: 15px;
+                top: 1.8vh;
+            }
+        }
+    }
+
+    .menu-container{
+        display: flex;
+        justify-content: space-between;
+
+        #menu{
+            margin: auto;
+            margin-left: 25px;
+        }
+
+        h3{
+            margin: auto;
+            cursor: pointer;
+            font-size: 1.3rem;
+            
+            &:hover{
+                color: #BE123C;
+            }
+            
+            @include devices(tiny){
+                display: none;
+            }
+        }
+    }
+}
